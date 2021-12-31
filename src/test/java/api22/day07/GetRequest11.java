@@ -61,11 +61,24 @@ response.then().assertThat().statusCode((Integer) expectedData.get("Status Code"
         Assert.assertEquals(expectedData.get("Via"),response.getHeader("via"));
         Assert.assertEquals(expectedData.get("Server"), response.getHeader("Server"));
         Assert.assertEquals(expectedData.get("userId"), jsonPath.getInt("userId"));
-        Assert.assertEquals(expectedData.get("title"), jsonPath.getString("ttile"));
-        Assert.assertEquals(expectedData.get("completed"), jsonPath.getBoolean("false"));
+        Assert.assertEquals(expectedData.get("title"), jsonPath.getString("title"));
+        Assert.assertEquals(expectedData.get("completed"), jsonPath.getBoolean("completed"));
 
 //3.yontem
         //deserializesion
-        //opject mapper ve pojo classlar
+
+
+        HashMap<String,Object> actualData=response.as(HashMap.class);
+        //response dan gelen yanıtı actualdataya aktardık .as ile data typler eşitlendi
+
+        System.out.println(actualData);
+        //de-s ile yine body bilgilerini alabilirim(jsonpath gibi), statuscode header response ile alınır
+        //de-s ile statuscode header alınmaz
+
+        Assert.assertEquals(expectedData.get("userId"), actualData.get("userId"));
+        Assert.assertEquals(expectedData.get("title"), actualData.get("title"));
+        Assert.assertEquals(expectedData.get("completed"), actualData.get("completed"));
+
+
     }
 }

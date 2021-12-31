@@ -59,8 +59,8 @@ public class GetRequest11TestData extends JsonPlaceHolderTestBase {
         Assert.assertEquals(expectedData.get("Via"),response.getHeader("via"));
         Assert.assertEquals(expectedData.get("Server"), response.getHeader("Server"));
         Assert.assertEquals(expectedData.get("userId"), jsonPath.getInt("userId"));
-        Assert.assertEquals(expectedData.get("title"), jsonPath.getString("ttile"));
-        Assert.assertEquals(expectedData.get("completed"), jsonPath.getBoolean("false"));
+        Assert.assertEquals(expectedData.get("title"), jsonPath.getString("title"));
+        Assert.assertEquals(expectedData.get("completed"), jsonPath.getBoolean("completed"));
 
 //3.yontem
         //deserializesion
