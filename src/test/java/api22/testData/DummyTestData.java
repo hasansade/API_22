@@ -65,4 +65,27 @@ olduğunu test edin.
         return expectedData;
 
     }
+
+    public HashMap<String, String> setUpRequestBody(){
+        HashMap<String,String> requestBody=new HashMap<String,String>();
+    requestBody.put("name", "yeniisim");
+    requestBody.put("salary", "12500");
+    requestBody.put("age", "28");
+    return requestBody;
+    }
+    public HashMap<String, Object> setUpExpectedData(){
+        HashMap<String,Object> data=new HashMap<String,Object>();
+//data.put("name", "yeniisim");
+//data.put("salary", "12500");
+//data.put("age", "28");
+
+HashMap<String,Object> expectedData=new HashMap<String,Object>();
+expectedData.put("statusCode",200);
+expectedData.put("status", "success");
+//expectedData.put("data", data);
+expectedData.put("message", "Successfully! Record has been added.");
+
+
+        return expectedData;
+    }
 }
